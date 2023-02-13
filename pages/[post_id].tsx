@@ -58,9 +58,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     revalidate: 10, // In seconds
   }
 }
-async function Post({ post, slug }: { post: any, slug: any}) {
+function Post({ post, slug }: { post: any, slug: any}) {
 
-  const { loading, error, data } =await client.query({query:PostByCategorySlug , 
+  const { loading, error, data } = useQuery(PostByCategorySlug , {
     variables: { category: post, }
   });
 
